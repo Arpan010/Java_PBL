@@ -4,141 +4,196 @@ import java.io.*;
 import java.util.*;
 import java.util.stream.Collectors;
 
+/**
+ * A class to analyze questions, classify them into topics, manage a question bank,
+ * and recommend practice questions based on identified topics.
+ */
 public class QuestionAnalyser {
-    private Set<String> trainingSet;               // Stores existing questions from training.txt
-    private Map<String, List<String>> topicKeywords; // Maps topics to their keywords
-    private List<String> topics;                   // Stores unique topics found in log.txt
+    // Stores questions from training.txt to avoid duplicates
+    private final Set<String> trainingQuestions;
+    // Maps each topic to a list of keywords for classification
+    private final Map<String, List<String>> topicToKeywordsMap;
+    // Stores unique topics found during analysis
+    private List<String> uniqueTopicsList;
 
     /**
-     * Constructor: Loads training.txt and topic_keywords.txt to initialize the analyser.
-     * Assumes files are in a 'resources' folder in the project root.
+     * Initializes the analyser by loading training questions and topic keywords.
      */
     public QuestionAnalyser() {
-        // Initialize training set
-        trainingSet = new HashSet<>();
-        try (BufferedReader br = new BufferedReader(new FileReader("../resources/training.txt"))) {
-            String line;
-            while ((line = br.readLine()) != null) {
-                trainingSet.add(line.trim());
-            }
-        } catch (IOException e) {
-            System.err.println("Error loading training.txt: " + e.getMessage());
-        }
+        trainingQuestions = new HashSet<>();
+        topicToKeywordsMap = new HashMap<>();
+        uniqueTopicsList = new ArrayList<>();
+        loadTrainingQuestions();
+        loadTopicKeywords();
+    }
 
-        // Initialize topic keywords
-        topicKeywords = new HashMap<>();
-        try (BufferedReader br = new BufferedReader(new FileReader("../resources/topic_keywords.txt"))) {
+    /**
+     * Loads questions from training.txt into the trainingQuestions set.
+     */
+    private void loadTrainingQuestions() {
+        File trainingFile = new File("src/main/resources/training.txt");
+        if (!trainingFile.exists()) {
+            return;
+        }
+        try (BufferedReader reader = new BufferedReader(new FileReader(trainingFile))) {
             String line;
-            while ((line = br.readLine()) != null) {
-                String[] parts = line.split(":");
-                if (parts.length == 2) {
-                    String topic = parts[0].trim();
-                    List<String> keywords = Arrays.asList(parts[1].split(","));
-                    topicKeywords.put(topic, keywords.stream().map(String::trim).collect(Collectors.toList()));
+            while ((line = reader.readLine()) != null) {
+                String trimmedLine = line.trim();
+                if (!trimmedLine.isEmpty()) {
+                    trainingQuestions.add(trimmedLine);
                 }
             }
-        } catch (IOException e) {
-            System.err.println("Error loading topic_keywords.txt: " + e.getMessage());
+        } catch (IOException exception) {
+            // Silently handle errors to keep functionality intact
         }
     }
 
     /**
-     * Performs the analysis: Reads log.txt, classifies questions, updates question bank,
-     * extracts unique topics, and writes them to topics_log.txt.
+     * Loads topic-to-keyword mappings from topic_keywords.txt.
+     */
+    private void loadTopicKeywords() {
+        File keywordsFile = new File("src/main/resources/topic_keywords.txt");
+        if (!keywordsFile.exists()) {
+            return;
+        }
+        try (BufferedReader reader = new BufferedReader(new FileReader(keywordsFile))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String trimmedLine = line.trim();
+                if (trimmedLine.isEmpty()) {
+                    continue;
+                }
+                String[] parts = trimmedLine.split(":");
+                if (parts.length != 2 || parts[0].trim().isEmpty() || parts[1].trim().isEmpty()) {
+                    continue;
+                }
+                String topic = parts[0].trim();
+                String[] keywordsArray = parts[1].split(",");
+                List<String> keywordsList = new ArrayList<>();
+                for (String keyword : keywordsArray) {
+                    String trimmedKeyword = keyword.trim();
+                    if (!trimmedKeyword.isEmpty()) {
+                        keywordsList.add(trimmedKeyword);
+                    }
+                }
+                topicToKeywordsMap.put(topic, keywordsList);
+            }
+        } catch (IOException exception) {
+            // Silently handle errors
+        }
+    }
+
+    /**
+     * Analyzes questions from log.txt, classifies them, updates files, and logs topics.
      */
     public void analyze() {
-        List<String> questions = readQuestions("../resources/log.txt");
-        Set<String> uniqueTopics = new HashSet<>();
+        List<String> questions = readQuestionsFromFile("src/main/resources/log.txt");
+        Set<String> uniqueTopics = new TreeSet<>(); // Use TreeSet for sorted topics
 
         for (String question : questions) {
-            List<String> questionTopics = classifyQuestion(question);
-            uniqueTopics.addAll(questionTopics);
+            List<String> matchedTopics = findTopicsForQuestion(question);
+            uniqueTopics.addAll(matchedTopics);
 
-            // Add unique questions to training.txt and topic files (optional)
-            if (!trainingSet.contains(question)) {
-                addToTraining(question);
-                for (String topic : questionTopics) {
-                    addToTopicFile(question, topic);
+            // Add new questions to training and topic files
+            if (!trainingQuestions.contains(question)) {
+                appendQuestionToTrainingFile(question);
+                for (String topic : matchedTopics) {
+                    appendQuestionToTopicFile(question, topic);
                 }
-                trainingSet.add(question);
+                trainingQuestions.add(question);
             }
         }
 
-        // Write unique topics to topics_log.txt
-        try (BufferedWriter bw = new BufferedWriter(new FileWriter("../resources/topics_log.txt"))) {
-            for (String topic : uniqueTopics) {
-                bw.write(topic);
-                bw.newLine();
-            }
-        } catch (IOException e) {
-            System.err.println("Error writing to topics_log.txt: " + e.getMessage());
-        }
-
-        topics = new ArrayList<>(uniqueTopics);
+        writeTopicsToLogFile(uniqueTopics);
+        uniqueTopicsList = new ArrayList<>(uniqueTopics);
     }
 
     /**
      * Reads questions from a specified file.
-     * @param filePath Path to the file (e.g., "resources/log.txt")
+     * @param filePath Path to the file
      * @return List of questions
      */
-    private List<String> readQuestions(String filePath) {
+    private List<String> readQuestionsFromFile(String filePath) {
         List<String> questions = new ArrayList<>();
-        try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
+        File file = new File(filePath);
+        if (!file.exists()) {
+            return questions;
+        }
+        try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
             String line;
-            while ((line = br.readLine()) != null) {
-                questions.add(line.trim());
+            while ((line = reader.readLine()) != null) {
+                String trimmedLine = line.trim();
+                if (!trimmedLine.isEmpty()) {
+                    questions.add(trimmedLine);
+                }
             }
-        } catch (IOException e) {
-            System.err.println("Error reading " + filePath + ": " + e.getMessage());
+        } catch (IOException exception) {
+            // Silently handle errors
         }
         return questions;
     }
 
     /**
-     * Classifies a question into topics based on keyword matching.
+     * Finds topics for a question by matching keywords.
      * @param question The question to classify
-     * @return List of topics the question belongs to
+     * @return List of topics that match the question
      */
-    private List<String> classifyQuestion(String question) {
-        List<String> questionTopics = new ArrayList<>();
-        String lowerQuestion = question.toLowerCase();
-        for (Map.Entry<String, List<String>> entry : topicKeywords.entrySet()) {
+    private List<String> findTopicsForQuestion(String question) {
+        List<String> matchedTopics = new ArrayList<>();
+        String questionLowerCase = question.toLowerCase();
+
+        for (Map.Entry<String, List<String>> entry : topicToKeywordsMap.entrySet()) {
             String topic = entry.getKey();
-            for (String keyword : entry.getValue()) {
-                if (lowerQuestion.contains(keyword.toLowerCase())) {
-                    questionTopics.add(topic);
-                    break; // One keyword match per topic is sufficient
+            List<String> keywords = entry.getValue();
+            for (String keyword : keywords) {
+                if (questionLowerCase.contains(keyword.toLowerCase())) {
+                    matchedTopics.add(topic);
+                    break; // One keyword match is enough for the topic
                 }
             }
         }
-        return questionTopics;
+        return matchedTopics;
     }
 
     /**
      * Appends a question to training.txt.
      * @param question The question to add
      */
-    private void addToTraining(String question) {
-        try (BufferedWriter bw = new BufferedWriter(new FileWriter("../resources/training.txt", true))) {
-            bw.write(question);
-            bw.newLine();
-        } catch (IOException e) {
-            System.err.println("Error appending to training.txt: " + e.getMessage());
+    private void appendQuestionToTrainingFile(String question) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("src/main/resources/training.txt", true))) {
+            writer.write(question);
+            writer.newLine();
+        } catch (IOException exception) {
+            // Silently handle errors
         }
     }
 
     /**
-     * Appends a question to the specified topic file.
+     * Appends a question to a topic-specific file.
      * @param question The question to add
-     * @param topic The topic file name (e.g., "array")
+     * @param topic The topic file name
      */
-    private void addToTopicFile(String question, String topic) {
-        try (BufferedWriter bw = new BufferedWriter(new FileWriter("../resources/" + topic + ".txt", true))) {
-            bw.write(question);
-            bw.newLine();
-        } catch (IOException e) {
-            System.err.println("Error appending to " + topic + ".txt: " + e.getMessage());
+    private void appendQuestionToTopicFile(String question, String topic) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("src/main/resources/" + topic + ".txt", true))) {
+            writer.write(question);
+            writer.newLine();
+        } catch (IOException exception) {
+            // Silently handle errors
+        }
+    }
+
+    /**
+     * Writes unique topics to topics_log.txt.
+     * @param topics Set of topics to write
+     */
+    private void writeTopicsToLogFile(Set<String> topics) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("src/main/resources/topics_log.txt"))) {
+            for (String topic : topics) {
+                writer.write(topic);
+                writer.newLine();
+            }
+        } catch (IOException exception) {
+            // Silently handle errors
         }
     }
 
@@ -147,21 +202,87 @@ public class QuestionAnalyser {
      * @return List of topics
      */
     public List<String> getTopics() {
-        return topics != null ? topics : new ArrayList<>();
+        return uniqueTopicsList != null ? new ArrayList<>(uniqueTopicsList) : new ArrayList<>();
     }
 
     /**
-     * Retrieves up to 'count' questions from the specified topic file.
-     * @param topic The topic (e.g., "array")
-     * @param count Number of questions to retrieve (e.g., 10)
+     * Retrieves up to a specified number of questions from a topic file.
+     * @param topic The topic (e.g., "arrays")
+     * @param count Maximum number of questions to retrieve
      * @return List of questions
      */
     public List<String> getSimilarQuestions(String topic, int count) {
-        List<String> questions = readQuestions("../resources/" + topic + ".txt");
+        List<String> questions = readQuestionsFromFile("src/main/resources/" + topic + ".txt");
         if (questions.size() <= count) {
             return questions;
-        } else {
-            return questions.subList(0, count); // Returns first 'count' questions
         }
+        return questions.subList(0, count);
+    }
+
+    /**
+     * Recommends up to 5 practice questions for each topic in topics_log.txt or uniqueTopicsList.
+     */
+    public void recommendQuestions() {
+        List<String> topics = readTopicsFromFile("src/main/resources/topics_log.txt");
+        if (topics.isEmpty() && uniqueTopicsList != null) {
+            topics = new ArrayList<>(uniqueTopicsList);
+        }
+
+        if (topics.isEmpty()) {
+            System.out.println("No topics available for recommendation.");
+            return;
+        }
+
+        System.out.println("Recommended Practice Questions:");
+        for (String topic : topics) {
+            List<String> questions = getSimilarQuestions(topic, 5);
+            System.out.println("\nTopic: " + topic);
+            if (questions.isEmpty()) {
+                System.out.println("  No questions available for this topic.");
+            } else {
+                for (int i = 0; i < questions.size(); i++) {
+                    System.out.println("  " + (i + 1) + ". " + questions.get(i));
+                }
+            }
+        }
+    }
+
+    /**
+     * Reads topics from a specified file.
+     * @param filePath Path to the topics file
+     * @return List of topics
+     */
+    private List<String> readTopicsFromFile(String filePath) {
+        List<String> topics = new ArrayList<>();
+        File file = new File(filePath);
+        if (!file.exists()) {
+            return topics;
+        }
+        try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String trimmedLine = line.trim();
+                if (!trimmedLine.isEmpty()) {
+                    topics.add(trimmedLine);
+                }
+            }
+        } catch (IOException exception) {
+            // Silently handle errors
+        }
+        return topics;
+    }
+
+    /**
+     * Main method to run the question analyser and recommend questions.
+     * @param args Command-line arguments (unused)
+     */
+    public static void main(String[] args) {
+        QuestionAnalyser analyser = new QuestionAnalyser();
+        analyser.analyze();
+        System.out.println("Topics:");
+        for (String topic : analyser.getTopics()) {
+            System.out.println(topic);
+        }
+        analyser.recommendQuestions();
     }
 }
