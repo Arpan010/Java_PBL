@@ -1,0 +1,10 @@
+1. What is an avl tree and how does it maintain balance?
+2. Explain the rotation operations (left, right, left-right, right-left) in avl trees.
+3. What is the balance factor in an avl tree and how is it calculated?
+4. How would you implement an avl tree from scratch?
+5. What is the time complexity of search, insert, and delete operations in an avl tree?
+6. Compare avl trees with red-black trees in terms of performance and use cases.
+7. Describe the process of inserting a node into an avl tree with appropriate rotations.
+8. How would you delete a node from an avl tree while maintaining balance?
+9. What is the maximum possible height of an avl tree with n nodes?
+10. In what scenarios would you prefer using an avl tree over other balanced tree structures?

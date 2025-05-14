@@ -1,0 +1,10 @@
+1. What is a binary search tree (binary search trees) and what properties distinguish it from a regular binary tree?
+2. How would you implement a binary search tree from scratch?
+3. Explain the time complexity of search, insert, and delete operations in a balanced binary search trees.
+4. How would you efficiently find the kth smallest element in a binary search trees?
+5. Describe an algorithm to validate if a given binary tree is a valid binary search trees.
+6. How would you convert a sorted array to a height-balanced binary search trees?
+7. Explain how to efficiently find the floor and ceiling values of a given key in a binary search trees.
+8. How would you find the predecessor and successor of a node in a binary search trees?
+9. Describe the process of deleting a node from a binary search trees while maintaining its properties.
+10. How would you efficiently find the lowest common ancestor of two nodes in a binary search trees?

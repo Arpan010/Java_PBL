@@ -1,0 +1,10 @@
+1. What are the main characteristics of a circular linked list?
+2. How would you implement a circular linked list from scratch?
+3. Describe an algorithm to detect if a linked list is circular.
+4. What are the practical applications of circular linked lists?
+5. How would you efficiently insert a node at the beginning of a circular linked list?
+6. Explain how to split a circular linked list into two equal circular linked lists.
+7. How would you efficiently convert a singly linked list to a circular linked list?
+8. Describe an algorithm to count the number of nodes in a circular linked list.
+9. How would you efficiently delete a node from a circular linked list?
+10. What is the most efficient way to check if two circular linked lists are identical?
