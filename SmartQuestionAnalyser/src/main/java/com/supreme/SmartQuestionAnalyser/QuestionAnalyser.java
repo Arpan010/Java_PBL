@@ -27,7 +27,7 @@ public class QuestionAnalyser {
 
         // Initialize topic keywords
         topicKeywords = new HashMap<>();
-        try (BufferedReader br = new BufferedReader(new FileReader("resources/topic_keywords.txt"))) {
+        try (BufferedReader br = new BufferedReader(new FileReader("../resources/topic_keywords.txt"))) {
             String line;
             while ((line = br.readLine()) != null) {
                 String[] parts = line.split(":");
@@ -47,7 +47,7 @@ public class QuestionAnalyser {
      * extracts unique topics, and writes them to topics_log.txt.
      */
     public void analyze() {
-        List<String> questions = readQuestions("resources/log.txt");
+        List<String> questions = readQuestions("../resources/log.txt");
         Set<String> uniqueTopics = new HashSet<>();
 
         for (String question : questions) {
@@ -65,7 +65,7 @@ public class QuestionAnalyser {
         }
 
         // Write unique topics to topics_log.txt
-        try (BufferedWriter bw = new BufferedWriter(new FileWriter("resources/topics_log.txt"))) {
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter("../resources/topics_log.txt"))) {
             for (String topic : uniqueTopics) {
                 bw.write(topic);
                 bw.newLine();
@@ -120,7 +120,7 @@ public class QuestionAnalyser {
      * @param question The question to add
      */
     private void addToTraining(String question) {
-        try (BufferedWriter bw = new BufferedWriter(new FileWriter("resources/training.txt", true))) {
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter("../resources/training.txt", true))) {
             bw.write(question);
             bw.newLine();
         } catch (IOException e) {
@@ -134,7 +134,7 @@ public class QuestionAnalyser {
      * @param topic The topic file name (e.g., "array")
      */
     private void addToTopicFile(String question, String topic) {
-        try (BufferedWriter bw = new BufferedWriter(new FileWriter("resources/" + topic + ".txt", true))) {
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter("../resources/" + topic + ".txt", true))) {
             bw.write(question);
             bw.newLine();
         } catch (IOException e) {
@@ -157,7 +157,7 @@ public class QuestionAnalyser {
      * @return List of questions
      */
     public List<String> getSimilarQuestions(String topic, int count) {
-        List<String> questions = readQuestions("resources/" + topic + ".txt");
+        List<String> questions = readQuestions("../resources/" + topic + ".txt");
         if (questions.size() <= count) {
             return questions;
         } else {
