@@ -211,12 +211,14 @@ public class QuestionAnalyser {
      * @param count Maximum number of questions to retrieve
      * @return List of questions
      */
-    public List<String> getSimilarQuestions(String topic, int count) {
+    public List<String> getSimilarQuestions(String topic, int count, Set<String> skipQuestions) {
         List<String> questions = readQuestionsFromFile("src/main/resources/" + topic + ".txt");
-        if (questions.size() <= count) {
-            return questions;
-        }
-        return questions.subList(0, count);
+        List<String> filtered = questions.stream()
+            .filter(q -> !skipQuestions.contains(q))
+            .collect(Collectors.toList());
+
+        if (filtered.size() <= count) return filtered;
+        return filtered.subList(0, count);
     }
 
     /**
@@ -245,6 +247,16 @@ public class QuestionAnalyser {
                 }
             }
         }
+    }
+    public List<String> getSimilarQuestionsExcluding(String topic, int count, Set<String> excludeQuestions) {
+        List<String> all = readQuestionsFromFile("src/main/resources/" + topic + ".txt");
+
+        List<String> filtered = all.stream()
+            .filter(q -> !excludeQuestions.contains(q.trim()))
+            .collect(Collectors.toList());
+
+        if (filtered.size() <= count) return filtered;
+        return filtered.subList(0, count);
     }
 
     /**

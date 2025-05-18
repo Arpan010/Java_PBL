@@ -54,16 +54,28 @@ public class App {
 
     // This method writes all the questions into a log file
     public void writeQuestionsToLogFile(Set<String> questions, String logFilePath) throws IOException {
-        FileWriter fileWriter = new FileWriter(logFilePath);
-        BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+        // Step 1: Load existing questions
+        Set<String> existing = new HashSet<>();
+        File logFile = new File(logFilePath);
 
-        // Write each question on a new line
-        for (String question : questions) {
-            bufferedWriter.write(question);
-            bufferedWriter.newLine();
+        if (logFile.exists()) {
+            try (BufferedReader reader = new BufferedReader(new FileReader(logFile))) {
+                String line;
+                while ((line = reader.readLine()) != null) {
+                    existing.add(line.trim());
+                }
+            }
         }
 
-        bufferedWriter.close();
+        // Step 2: Append only new (non-duplicate) questions
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(logFilePath, true))) {
+            for (String q : questions) {
+                if (!existing.contains(q.trim())) {
+                    writer.write(q.trim());
+                    writer.newLine();
+                }
+            }
+        }
     }
 
     // This method combines all steps: read, extract, and write
