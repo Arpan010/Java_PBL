@@ -1,0 +1,1 @@
+10. Design an algorithm to find the majority element (appears more than n/2 times) in an array of size n.Basic Level:

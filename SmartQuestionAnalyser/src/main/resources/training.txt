@@ -25,3 +25,4 @@ prefer them over readers/writers?
 8. How would you find all pairs of elements in an array that sum to a given target?
 9. What is the Dutch national flag problem and how would you solve it using arrays?
 10. Design an algorithm to find the majority element (appears more than n/2 times) in an array of size n.
+10. Design an algorithm to find the majority element (appears more than n/2 times) in an array of size n.Basic Level:
