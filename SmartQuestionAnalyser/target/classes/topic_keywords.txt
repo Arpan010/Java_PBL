@@ -1,0 +1,71 @@
+arrays:array, arrays, sort, reverse, merge, duplicates, subarray, majority, pairs, element, rotate
+linked_lists:linked list, linked lists, node, pointer, next, prev
+doubly_linked_lists:doubly linked list, doubly linked lists, bidirectional, prev, next
+circular_linked_lists:circular linked list, circular linked lists, cycle, loop
+stacks:stack, push, pop, peek, lifo
+queues:queue, enqueue, dequeue, fifo
+priority_queues:priority queue, priority, heap, min, max
+deques:deque, double ended queue, front, rear
+hash_tables:hash table, hash, key, value, collision
+hash_maps:hash map, hashmap, key, value, mapping
+hash_sets:hash set, hashset, unique, set
+binary_trees:binary tree, tree, node, root, leaf, branch
+binary_search_trees:binary search tree, bst, search, insert, delete
+avl_trees:avl tree, balanced, height, rotation
+red_black_trees:red black tree, rbt, balanced, color
+b_trees:b tree, b-tree, multiway, balanced
+b_plus_trees:b plus tree, b+ tree, index, leaf
+heaps:heap, binary heap, priority, min, max
+min_heaps:min heap, minimum, smallest
+max_heaps:max heap, maximum, largest
+tries:trie, prefix tree, dictionary, autocomplete
+suffix_trees:suffix tree, substring, pattern
+segment_trees:segment tree, range, query, update
+fenwick_trees:fenwick tree, binary indexed tree, bit, cumulative
+disjoint_set:disjoint set, union find, connected, components
+graphs:graph, vertex, edge, directed, undirected
+adjacency_matrix:adjacency matrix, matrix, graph, representation
+adjacency_list:adjacency list, list, graph, representation
+bloom_filters:bloom filter, probabilistic, membership
+skip_lists:skip list, probabilistic, search, insert
+sparse_tables:sparse table, range, query, static
+treaps:treap, tree, heap, randomized
+splay_trees:splay tree, splay, self adjusting
+fibonacci_heaps:fibonacci heap, priority, decrease key
+linear_search:linear search, sequential, scan
+binary_search:binary search, divide, sorted
+bubble_sort:bubble sort, swap, bubble
+selection_sort:selection sort, minimum, select
+insertion_sort:insertion sort, insert, shift
+merge_sort:merge sort, divide, merge, conquer
+quick_sort:quick sort, pivot, partition
+heap_sort:heap sort, heapify, heap
+counting_sort:counting sort, frequency, range
+radix_sort:radix sort, digit, bucket
+bucket_sort:bucket sort, buckets, distribution
+breadth_first_search:bfs, breadth first, queue, level
+depth_first_search:dfs, depth first, stack, recursion
+dijkstra_algorithm:dijkstra, shortest path, priority queue
+bellman_ford_algorithm:bellman ford, shortest path, negative
+floyd_warshall_algorithm:floyd warshall, all pairs, shortest path
+kruskal_algorithm:kruskal, minimum spanning tree, union find
+prim_algorithm:prim, minimum spanning tree, priority queue
+topological_sort:topological sort, dag, dependency
+kadane_algorithm:kadane, maximum subarray, sum
+dynamic_programming:dynamic programming, dp, memoization, tabulation
+greedy_algorithms:greedy, optimal, choice
+backtracking:backtrack, recursion, trial, error
+divide_and_conquer:divide and conquer, split, merge
+recursion:recursion, recursive, base case
+memoization:memoization, cache, dp
+two_pointers:two pointers, left, right, scan
+sliding_window:sliding window, window, subarray
+rabin_karp:rabin karp, string, hash, pattern
+knuth_morris_pratt:kmp, knuth morris pratt, string, pattern
+boyer_moore:boyer moore, string, pattern, skip
+a_star_search:a star, a*, heuristic, pathfinding
+manacher_algorithm:manacher, palindrome, substring
+grahams_scan:graham scan, convex hull, geometry
+bit_manipulation:bit, bitwise, xor, and, or, shift
+z_algorithm:z algorithm, string, pattern, matching
+file_handling:file, filereader, bufferedreader, filewriter, bufferedwriter, fileinputstream, fileoutputstream, exceptions, directory, word count

@@ -1,0 +1,10 @@
+1. What is a hash table and how does it work?
+2. Explain different collision resolution techniques in hash tables.
+3. What is the difference between open addressing and separate chaining?
+4. How would you implement a hash table from scratch?
+5. What makes a good hash function? What properties should it have?
+6. How does a hash table resize itself when it gets too full, and what is the time complexity of this operation?
+7. What is the load factor in a hash table and how does it affect performance?
+8. How would you design a hash table with O(1) worst-case lookup time?
+9. Explain how you would implement a distributed hash table.
+10. How would you design a hash table that maintains insertion order?

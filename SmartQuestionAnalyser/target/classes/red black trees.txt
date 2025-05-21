@@ -1,0 +1,10 @@
+1. What is a red black tree and what are its key properties?
+2. How does a red black tree differ from an  avl tree in terms of balance constraints?
+3. Explain the color rules and rotations in red black trees.
+4. How would you implement a red black tree from scratch?
+5. What is the time complexity of search, insert, and delete operations in a red black tree?
+6. Describe the process of inserting a node into a red black tree with appropriate recoloring and rotations.
+7. How would you delete a node from a red black tree while maintaining its properties?
+8. What is the maximum possible height of a red black tree with n nodes?
+9. In what practical applications are red black trees commonly used?
+10. Why are red black trees often preferred over  avl trees in standard library implementations of map/set containers?

@@ -1,0 +1,10 @@
+1. What is a binary tree and what are its properties?
+2. How would you implement a binary tree from scratch?
+3. Explain the difference between pre-order, in-order, and post-order traversals of a binary tree.
+4. How would you implement level-order traversal of a binary tree?
+5. How would you find the height of a binary tree?
+6. Describe an algorithm to find the lowest common ancestor of two nodes in a binary tree.
+7. How would you check if a binary tree is balanced?
+8. Explain how to serialize and deserialize a binary tree.
+9. How would you find the diameter of a binary tree (the longest path between any two nodes)?
+10. Design an algorithm to check if two binary trees are identical in structure and values.
