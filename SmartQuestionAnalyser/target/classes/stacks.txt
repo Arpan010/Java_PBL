@@ -1,0 +1,10 @@
+1. Explain the key operations of a stack data structure and their time complexities.
+2. How would you implement a stack using arrays? What are the limitations?
+3. How would you implement a stack using a linked list?
+4. Explain how to evaluate a postfix expression using a stack.
+5. How would you implement the "undo" functionality in a text editor using stacks?
+6. Design a stack that supports getMin() operation in O(1) time.
+7. How would you efficiently implement multiple stacks in a single array?
+8. Explain how to sort a stack using only one additional stack and no other data structures.
+9. How would you check if a given expression has balanced parentheses using a stack?
+10. Implement a queue using two stacks.

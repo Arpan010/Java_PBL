@@ -1,0 +1,10 @@
+1. What is a hash map and how does it differ from a hash table?
+2. How would you implement a hash map that supports insertion, deletion, and lookup operations?
+3. Explain how you would handle collisions in a hash map implementation.
+4. What is the time complexity for key operations (get, put, remove) in a hash map?
+5. How would you implement a thread-safe hash map?
+6. Describe how to implement a custom hash function for user-defined objects used as keys in a hash map.
+7. How would you design a cache with a least recently used (LRU) eviction policy using a hash map?
+8. Explain how you would implement a frequency counter for streaming data using a hash map.
+9. How would you detect if two strings are anagrams of each other using a hash map?
+10. Design an algorithm to find all pairs of elements in an array that sum to a given target using a hash map.

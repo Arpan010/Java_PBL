@@ -1,5 +1,5 @@
 package com.supreme.SmartQuestionAnalyser;
-
+// Main Application
 import javafx.animation.FadeTransition;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
