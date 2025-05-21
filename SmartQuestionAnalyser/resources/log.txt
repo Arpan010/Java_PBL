@@ -1,0 +1,497 @@
+Basic Level: 
+1. What is the difference between FileReader and BufferedReader in Java?
+Write a Java program to create a new file and write a string into it. 
+3. How can you check if a file exists or not in Java using the File class?
+Write a program to read a text file line by line and print its contents. 
+5. Explain the difference between FileWriter and BufferedWriter with an 
+example. 
+ 
+🔹 Intermediate Level: 
+6. Write a Java program to copy the contents of one file to another. 
+7. What are the common exceptions you encounter during file handling in 
+Java, and how do you handle them?
+How can you list all files and directories in a given folder using Java?
+Write a program to count the number of words in a text file. 
+10. What is the use of FileInputStream and FileOutputStream?
+When would you 
+prefer them over readers/writers?
+Basic Level: 
+1. What is the difference between FileReader and BufferedReader in Java?
+Write a Java program to create a new file and write a string into it. 
+3. How can you check if a file exists or not in Java using the File class?
+Write a program to read a text file line by line and print its contents. 
+5. Explain the difference between FileWriter and BufferedWriter with an 
+example. 
+ 
+🔹 Intermediate Level: 
+6. Write a Java program to copy the contents of one file to another. 
+7. What are the common exceptions you encounter during file handling in 
+Java, and how do you handle them?
+Write a program to count the number of words in a text file. 
+10. What is the use of FileInputStream and FileOutputStream?
+When would you 
+prefer them over readers/writers?
+Basic Level: 
+1. What is the difference between FileReader and BufferedReader in Java?
+Write a Java program to create a new file and write a string into it. 
+3. How can you check if a file exists or not in Java using the File class?
+Write a program to read a text file line by line and print its contents. 
+5. Explain the difference between FileWriter and BufferedWriter with an 
+example. 
+ 
+🔹 Intermediate Level: 
+6. Write a Java program to copy the contents of one file to another. 
+7. What are the common exceptions you encounter during file handling in 
+Java, and how do you handle them?
+Write a program to count the number of words in a text file. 
+10. What is the use of FileInputStream and FileOutputStream?
+When would you 
+prefer them over readers/writers?
+Basic Level: 
+1. What is the difference between FileReader and BufferedReader in Java?
+Write a Java program to create a new file and write a string into it. 
+3. How can you check if a file exists or not in Java using the File class?
+Write a program to read a text file line by line and print its contents. 
+5. Explain the difference between FileWriter and BufferedWriter with an 
+example. 
+ 
+🔹 Intermediate Level: 
+6. Write a Java program to copy the contents of one file to another. 
+7. What are the common exceptions you encounter during file handling in 
+Java, and how do you handle them?
+Write a program to count the number of words in a text file. 
+10. What is the use of FileInputStream and FileOutputStream?
+When would you 
+prefer them over readers/writers?
+Basic Level: 
+1. What is the difference between FileReader and BufferedReader in Java?
+Write a Java program to create a new file and write a string into it. 
+3. How can you check if a file exists or not in Java using the File class?
+Write a program to read a text file line by line and print its contents. 
+5. Explain the difference between FileWriter and BufferedWriter with an 
+example. 
+ 
+🔹 Intermediate Level: 
+6. Write a Java program to copy the contents of one file to another. 
+7. What are the common exceptions you encounter during file handling in 
+Java, and how do you handle them?
+Write a program to count the number of words in a text file. 
+10. What is the use of FileInputStream and FileOutputStream?
+When would you 
+prefer them over readers/writers?
+Basic Level: 
+1. What is the difference between FileReader and BufferedReader in Java?
+Write a Java program to create a new file and write a string into it. 
+3. How can you check if a file exists or not in Java using the File class?
+Write a program to read a text file line by line and print its contents. 
+5. Explain the difference between FileWriter and BufferedWriter with an 
+example. 
+ 
+🔹 Intermediate Level: 
+6. Write a Java program to copy the contents of one file to another. 
+7. What are the common exceptions you encounter during file handling in 
+Java, and how do you handle them?
+Write a program to count the number of words in a text file. 
+10. What is the use of FileInputStream and FileOutputStream?
+When would you 
+prefer them over readers/writers?
+Basic Level: 
+1. What is the difference between FileReader and BufferedReader in Java?
+Write a Java program to create a new file and write a string into it. 
+3. How can you check if a file exists or not in Java using the File class?
+Write a program to read a text file line by line and print its contents. 
+5. Explain the difference between FileWriter and BufferedWriter with an 
+example. 
+ 
+🔹 Intermediate Level: 
+6. Write a Java program to copy the contents of one file to another. 
+7. What are the common exceptions you encounter during file handling in 
+Java, and how do you handle them?
+Write a program to count the number of words in a text file. 
+10. What is the use of FileInputStream and FileOutputStream?
+When would you 
+prefer them over readers/writers?
+Basic Level: 
+1. What is the difference between FileReader and BufferedReader in Java?
+Write a Java program to create a new file and write a string into it. 
+3. How can you check if a file exists or not in Java using the File class?
+Write a program to read a text file line by line and print its contents. 
+5. Explain the difference between FileWriter and BufferedWriter with an 
+example. 
+ 
+🔹 Intermediate Level: 
+6. Write a Java program to copy the contents of one file to another. 
+7. What are the common exceptions you encounter during file handling in 
+Java, and how do you handle them?
+Write a program to count the number of words in a text file. 
+10. What is the use of FileInputStream and FileOutputStream?
+When would you 
+prefer them over readers/writers?
+Basic Level: 
+1. What is the difference between FileReader and BufferedReader in Java?
+Write a Java program to create a new file and write a string into it. 
+3. How can you check if a file exists or not in Java using the File class?
+Write a program to read a text file line by line and print its contents. 
+5. Explain the difference between FileWriter and BufferedWriter with an 
+example. 
+ 
+🔹 Intermediate Level: 
+6. Write a Java program to copy the contents of one file to another. 
+7. What are the common exceptions you encounter during file handling in 
+Java, and how do you handle them?
+Write a program to count the number of words in a text file. 
+10. What is the use of FileInputStream and FileOutputStream?
+When would you 
+prefer them over readers/writers?
+Basic Level: 
+1. What is the difference between FileReader and BufferedReader in Java?
+Write a Java program to create a new file and write a string into it. 
+3. How can you check if a file exists or not in Java using the File class?
+Write a program to read a text file line by line and print its contents. 
+5. Explain the difference between FileWriter and BufferedWriter with an 
+example. 
+ 
+🔹 Intermediate Level: 
+6. Write a Java program to copy the contents of one file to another. 
+7. What are the common exceptions you encounter during file handling in 
+Java, and how do you handle them?
+Write a program to count the number of words in a text file. 
+10. What is the use of FileInputStream and FileOutputStream?
+When would you 
+prefer them over readers/writers?
+Basic Level: 
+1. What is the difference between FileReader and BufferedReader in Java?
+Write a Java program to create a new file and write a string into it. 
+3. How can you check if a file exists or not in Java using the File class?
+Write a program to read a text file line by line and print its contents. 
+5. Explain the difference between FileWriter and BufferedWriter with an 
+example. 
+ 
+🔹 Intermediate Level: 
+6. Write a Java program to copy the contents of one file to another. 
+7. What are the common exceptions you encounter during file handling in 
+Java, and how do you handle them?
+Write a program to count the number of words in a text file. 
+10. What is the use of FileInputStream and FileOutputStream?
+When would you 
+prefer them over readers/writers?
+Basic Level: 
+1. What is the difference between FileReader and BufferedReader in Java?
+Write a Java program to create a new file and write a string into it. 
+3. How can you check if a file exists or not in Java using the File class?
+Write a program to read a text file line by line and print its contents. 
+5. Explain the difference between FileWriter and BufferedWriter with an 
+example. 
+ 
+🔹 Intermediate Level: 
+6. Write a Java program to copy the contents of one file to another. 
+7. What are the common exceptions you encounter during file handling in 
+Java, and how do you handle them?
+Write a program to count the number of words in a text file. 
+10. What is the use of FileInputStream and FileOutputStream?
+When would you 
+prefer them over readers/writers?
+Basic Level: 
+1. What is the difference between FileReader and BufferedReader in Java?
+Write a Java program to create a new file and write a string into it. 
+3. How can you check if a file exists or not in Java using the File class?
+Write a program to read a text file line by line and print its contents. 
+5. Explain the difference between FileWriter and BufferedWriter with an 
+example. 
+ 
+🔹 Intermediate Level: 
+6. Write a Java program to copy the contents of one file to another. 
+7. What are the common exceptions you encounter during file handling in 
+Java, and how do you handle them?
+Write a program to count the number of words in a text file. 
+10. What is the use of FileInputStream and FileOutputStream?
+When would you 
+prefer them over readers/writers?
+Basic Level: 
+1. What is the difference between FileReader and BufferedReader in Java?
+Write a Java program to create a new file and write a string into it. 
+3. How can you check if a file exists or not in Java using the File class?
+Write a program to read a text file line by line and print its contents. 
+5. Explain the difference between FileWriter and BufferedWriter with an 
+example. 
+ 
+🔹 Intermediate Level: 
+6. Write a Java program to copy the contents of one file to another. 
+7. What are the common exceptions you encounter during file handling in 
+Java, and how do you handle them?
+Write a program to count the number of words in a text file. 
+10. What is the use of FileInputStream and FileOutputStream?
+When would you 
+prefer them over readers/writers?
+Basic Level: 
+1. What is the difference between FileReader and BufferedReader in Java?
+Write a Java program to create a new file and write a string into it. 
+3. How can you check if a file exists or not in Java using the File class?
+Write a program to read a text file line by line and print its contents. 
+5. Explain the difference between FileWriter and BufferedWriter with an 
+example. 
+ 
+🔹 Intermediate Level: 
+6. Write a Java program to copy the contents of one file to another. 
+7. What are the common exceptions you encounter during file handling in 
+Java, and how do you handle them?
+Write a program to count the number of words in a text file. 
+10. What is the use of FileInputStream and FileOutputStream?
+When would you 
+prefer them over readers/writers?
+Basic Level: 
+1. What is the difference between FileReader and BufferedReader in Java?
+Write a Java program to create a new file and write a string into it. 
+3. How can you check if a file exists or not in Java using the File class?
+Write a program to read a text file line by line and print its contents. 
+5. Explain the difference between FileWriter and BufferedWriter with an 
+example. 
+ 
+🔹 Intermediate Level: 
+6. Write a Java program to copy the contents of one file to another. 
+7. What are the common exceptions you encounter during file handling in 
+Java, and how do you handle them?
+Write a program to count the number of words in a text file. 
+10. What is the use of FileInputStream and FileOutputStream?
+When would you 
+prefer them over readers/writers?
+Basic Level: 
+1. What is the difference between FileReader and BufferedReader in Java?
+Write a Java program to create a new file and write a string into it. 
+3. How can you check if a file exists or not in Java using the File class?
+Write a program to read a text file line by line and print its contents. 
+5. Explain the difference between FileWriter and BufferedWriter with an 
+example. 
+ 
+🔹 Intermediate Level: 
+6. Write a Java program to copy the contents of one file to another. 
+7. What are the common exceptions you encounter during file handling in 
+Java, and how do you handle them?
+Write a program to count the number of words in a text file. 
+10. What is the use of FileInputStream and FileOutputStream?
+When would you 
+prefer them over readers/writers?
+Basic Level: 
+1. What is the difference between FileReader and BufferedReader in Java?
+Write a Java program to create a new file and write a string into it. 
+3. How can you check if a file exists or not in Java using the File class?
+Write a program to read a text file line by line and print its contents. 
+5. Explain the difference between FileWriter and BufferedWriter with an 
+example. 
+ 
+🔹 Intermediate Level: 
+6. Write a Java program to copy the contents of one file to another. 
+7. What are the common exceptions you encounter during file handling in 
+Java, and how do you handle them?
+Write a program to count the number of words in a text file. 
+10. What is the use of FileInputStream and FileOutputStream?
+When would you 
+prefer them over readers/writers?
+Basic Level: 
+1. What is the difference between FileReader and BufferedReader in Java?
+Write a Java program to create a new file and write a string into it. 
+3. How can you check if a file exists or not in Java using the File class?
+Write a program to read a text file line by line and print its contents. 
+5. Explain the difference between FileWriter and BufferedWriter with an 
+example. 
+ 
+🔹 Intermediate Level: 
+6. Write a Java program to copy the contents of one file to another. 
+7. What are the common exceptions you encounter during file handling in 
+Java, and how do you handle them?
+Write a program to count the number of words in a text file. 
+10. What is the use of FileInputStream and FileOutputStream?
+When would you 
+prefer them over readers/writers?
+Basic Level: 
+1. What is the difference between FileReader and BufferedReader in Java?
+Write a Java program to create a new file and write a string into it. 
+3. How can you check if a file exists or not in Java using the File class?
+Write a program to read a text file line by line and print its contents. 
+5. Explain the difference between FileWriter and BufferedWriter with an 
+example. 
+ 
+🔹 Intermediate Level: 
+6. Write a Java program to copy the contents of one file to another. 
+7. What are the common exceptions you encounter during file handling in 
+Java, and how do you handle them?
+Write a program to count the number of words in a text file. 
+10. What is the use of FileInputStream and FileOutputStream?
+When would you 
+prefer them over readers/writers?
+Basic Level: 
+1. What is the difference between FileReader and BufferedReader in Java?
+Write a Java program to create a new file and write a string into it. 
+3. How can you check if a file exists or not in Java using the File class?
+Write a program to read a text file line by line and print its contents. 
+5. Explain the difference between FileWriter and BufferedWriter with an 
+example. 
+ 
+🔹 Intermediate Level: 
+6. Write a Java program to copy the contents of one file to another. 
+7. What are the common exceptions you encounter during file handling in 
+Java, and how do you handle them?
+Write a program to count the number of words in a text file. 
+10. What is the use of FileInputStream and FileOutputStream?
+When would you 
+prefer them over readers/writers?
+Basic Level: 
+1. What is the difference between FileReader and BufferedReader in Java?
+Write a Java program to create a new file and write a string into it. 
+3. How can you check if a file exists or not in Java using the File class?
+Write a program to read a text file line by line and print its contents. 
+5. Explain the difference between FileWriter and BufferedWriter with an 
+example. 
+ 
+🔹 Intermediate Level: 
+6. Write a Java program to copy the contents of one file to another. 
+7. What are the common exceptions you encounter during file handling in 
+Java, and how do you handle them?
+Write a program to count the number of words in a text file. 
+10. What is the use of FileInputStream and FileOutputStream?
+When would you 
+prefer them over readers/writers?
+Basic Level: 
+1. What is the difference between FileReader and BufferedReader in Java?
+Write a Java program to create a new file and write a string into it. 
+3. How can you check if a file exists or not in Java using the File class?
+Write a program to read a text file line by line and print its contents. 
+5. Explain the difference between FileWriter and BufferedWriter with an 
+example. 
+ 
+🔹 Intermediate Level: 
+6. Write a Java program to copy the contents of one file to another. 
+7. What are the common exceptions you encounter during file handling in 
+Java, and how do you handle them?
+Write a program to count the number of words in a text file. 
+10. What is the use of FileInputStream and FileOutputStream?
+When would you 
+prefer them over readers/writers?
+Basic Level: 
+1. What is the difference between FileReader and BufferedReader in Java?
+Write a Java program to create a new file and write a string into it. 
+3. How can you check if a file exists or not in Java using the File class?
+Write a program to read a text file line by line and print its contents. 
+5. Explain the difference between FileWriter and BufferedWriter with an 
+example. 
+ 
+🔹 Intermediate Level: 
+6. Write a Java program to copy the contents of one file to another. 
+7. What are the common exceptions you encounter during file handling in 
+Java, and how do you handle them?
+Write a program to count the number of words in a text file. 
+10. What is the use of FileInputStream and FileOutputStream?
+When would you 
+prefer them over readers/writers?
+Basic Level: 
+1. What is the difference between FileReader and BufferedReader in Java?
+Write a Java program to create a new file and write a string into it. 
+3. How can you check if a file exists or not in Java using the File class?
+Write a program to read a text file line by line and print its contents. 
+5. Explain the difference between FileWriter and BufferedWriter with an 
+example. 
+ 
+🔹 Intermediate Level: 
+6. Write a Java program to copy the contents of one file to another. 
+7. What are the common exceptions you encounter during file handling in 
+Java, and how do you handle them?
+Write a program to count the number of words in a text file. 
+10. What is the use of FileInputStream and FileOutputStream?
+When would you 
+prefer them over readers/writers?
+Basic Level: 
+1. What is the difference between FileReader and BufferedReader in Java?
+Write a Java program to create a new file and write a string into it. 
+3. How can you check if a file exists or not in Java using the File class?
+Write a program to read a text file line by line and print its contents. 
+5. Explain the difference between FileWriter and BufferedWriter with an 
+example. 
+ 
+🔹 Intermediate Level: 
+6. Write a Java program to copy the contents of one file to another. 
+7. What are the common exceptions you encounter during file handling in 
+Java, and how do you handle them?
+Write a program to count the number of words in a text file. 
+10. What is the use of FileInputStream and FileOutputStream?
+When would you 
+prefer them over readers/writers?
+Basic Level: 
+1. What is the difference between FileReader and BufferedReader in Java?
+Write a Java program to create a new file and write a string into it. 
+3. How can you check if a file exists or not in Java using the File class?
+Write a program to read a text file line by line and print its contents. 
+5. Explain the difference between FileWriter and BufferedWriter with an 
+example. 
+ 
+🔹 Intermediate Level: 
+6. Write a Java program to copy the contents of one file to another. 
+7. What are the common exceptions you encounter during file handling in 
+Java, and how do you handle them?
+Write a program to count the number of words in a text file. 
+10. What is the use of FileInputStream and FileOutputStream?
+When would you 
+prefer them over readers/writers?
+Basic Level: 
+1. What is the difference between FileReader and BufferedReader in Java?
+Write a Java program to create a new file and write a string into it. 
+3. How can you check if a file exists or not in Java using the File class?
+Write a program to read a text file line by line and print its contents. 
+5. Explain the difference between FileWriter and BufferedWriter with an 
+example. 
+ 
+🔹 Intermediate Level: 
+6. Write a Java program to copy the contents of one file to another. 
+7. What are the common exceptions you encounter during file handling in 
+Java, and how do you handle them?
+Write a program to count the number of words in a text file. 
+10. What is the use of FileInputStream and FileOutputStream?
+When would you 
+prefer them over readers/writers?
+Basic Level: 
+1. What is the difference between FileReader and BufferedReader in Java?
+Write a Java program to create a new file and write a string into it. 
+3. How can you check if a file exists or not in Java using the File class?
+Write a program to read a text file line by line and print its contents. 
+5. Explain the difference between FileWriter and BufferedWriter with an 
+example. 
+ 
+🔹 Intermediate Level: 
+6. Write a Java program to copy the contents of one file to another. 
+7. What are the common exceptions you encounter during file handling in 
+Java, and how do you handle them?
+Write a program to count the number of words in a text file. 
+10. What is the use of FileInputStream and FileOutputStream?
+When would you 
+prefer them over readers/writers?
+Basic Level: 
+1. What is the difference between FileReader and BufferedReader in Java?
+Write a Java program to create a new file and write a string into it. 
+3. How can you check if a file exists or not in Java using the File class?
+Write a program to read a text file line by line and print its contents. 
+5. Explain the difference between FileWriter and BufferedWriter with an 
+example. 
+ 
+🔹 Intermediate Level: 
+6. Write a Java program to copy the contents of one file to another. 
+7. What are the common exceptions you encounter during file handling in 
+Java, and how do you handle them?
+Write a program to count the number of words in a text file. 
+10. What is the use of FileInputStream and FileOutputStream?
+When would you 
+prefer them over readers/writers?
+Basic Level: 
+1. What is the difference between FileReader and BufferedReader in Java?
+Write a Java program to create a new file and write a string into it. 
+3. How can you check if a file exists or not in Java using the File class?
+Write a program to read a text file line by line and print its contents. 
+5. Explain the difference between FileWriter and BufferedWriter with an 
+example. 
+ 
+🔹 Intermediate Level: 
+6. Write a Java program to copy the contents of one file to another. 
+7. What are the common exceptions you encounter during file handling in 
+Java, and how do you handle them?
+Write a program to count the number of words in a text file. 
+10. What is the use of FileInputStream and FileOutputStream?
+When would you 
+prefer them over readers/writers?
