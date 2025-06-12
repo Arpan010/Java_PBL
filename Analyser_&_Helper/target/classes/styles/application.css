@@ -1,0 +1,131 @@
+/* Base styles */
+.root {
+  -fx-font-family: "Segoe UI", Arial, sans-serif;
+  -fx-background-color: #f5f7fa;
+}
+
+/* Tab styling */
+.tab-pane .tab-header-area .tab-header-background {
+  -fx-background-color: #3498db;
+}
+
+.tab-pane .tab {
+  -fx-background-color: #2980b9;
+  -fx-padding: 5 15 5 15;
+}
+
+.tab-pane .tab:selected {
+  -fx-background-color: #1abc9c;
+}
+
+.tab-pane .tab .tab-label {
+  -fx-text-fill: white;
+  -fx-font-weight: bold;
+}
+
+.tab-content {
+  -fx-background-color: white;
+}
+
+/* Button styling */
+.primary-button {
+  -fx-background-color: #3498db;
+  -fx-text-fill: white;
+  -fx-font-weight: bold;
+  -fx-padding: 10 20;
+  -fx-background-radius: 5;
+}
+
+.primary-button:hover {
+  -fx-background-color: #2980b9;
+  -fx-cursor: hand;
+}
+
+/* Label styling */
+.title-label {
+  -fx-font-size: 24px;
+  -fx-font-weight: bold;
+  -fx-text-fill: #2c3e50;
+}
+
+.subtitle-label {
+  -fx-font-size: 16px;
+  -fx-text-fill: #7f8c8d;
+}
+
+.section-label {
+  -fx-font-size: 14px;
+  -fx-font-weight: bold;
+  -fx-text-fill: #2c3e50;
+}
+
+.status-label {
+  -fx-font-size: 14px;
+  -fx-text-fill: #7f8c8d;
+}
+
+/* List styling */
+.question-list {
+  -fx-background-color: white;
+  -fx-border-color: #ecf0f1;
+  -fx-border-width: 1;
+}
+
+.question-list .list-cell {
+  -fx-padding: 10;
+  -fx-background-color: white;
+  -fx-border-color: transparent transparent #ecf0f1 transparent;
+}
+
+.question-list .list-cell:selected {
+  -fx-background-color: #e1f0fa;
+}
+
+/* Progress bar styling */
+.progress-bar {
+  -fx-accent: #1abc9c;
+}
+
+/* Chart styling */
+.chart {
+  -fx-padding: 10;
+  -fx-background-color: white;
+  -fx-legend-visible: true;
+}
+
+.chart-pie-label {
+  -fx-font-size: 12px;
+}
+
+.chart-pie {
+  -fx-border-color: white;
+  -fx-border-width: 1;
+}
+
+/* Split pane styling */
+.split-pane {
+  -fx-background-color: white;
+}
+
+.split-pane-divider {
+  -fx-background-color: #ecf0f1;
+  -fx-padding: 1;
+}
+
+/* Text area styling */
+.text-area {
+  -fx-background-color: white;
+  -fx-border-color: #ecf0f1;
+  -fx-border-width: 1;
+  -fx-border-radius: 3;
+}
+
+.text-area .content {
+  -fx-background-color: white;
+}
+
+/* Web view styling */
+.web-view {
+  -fx-border-color: #ecf0f1;
+  -fx-border-width: 1;
+}
