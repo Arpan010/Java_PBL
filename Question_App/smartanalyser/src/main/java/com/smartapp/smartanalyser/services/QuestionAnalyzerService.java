@@ -1,3 +1,4 @@
+
 package com.smartapp.smartanalyser.services;
 
 import com.smartapp.smartanalyser.models.Question;
@@ -19,28 +20,28 @@ public class QuestionAnalyzerService {
     private static final String TOGETHER_API_URL = "https://api.together.xyz/v1/chat/completions";
     private static final String TOGETHER_API_KEY = "48ac1298eb7cb32febe78f4c118760705a5ec7e7b9d2a3f5837679256a65aee7"; // Replace with your actual API key
     
-    // Updated model names (these are confirmed working models)
-    private static final String MODEL_NAME = "NousResearch/Nous-Hermes-2-Mixtral-8x7B-DPO";
-    // Alternative models you can try:
-    // private static final String MODEL_NAME = "mistralai/Mixtral-8x7B-Instruct-v0.1";
-    // private static final String MODEL_NAME = "meta-llama/Llama-2-70b-chat-hf";
+    // Using Llama-2-7b-chat-hf for fast responses
+    private static final String MODEL_NAME = "mistralai/Mistral-7B-Instruct-v0.1";
     
     public Question analyzeQuestion(String questionText) {
         Question question = new Question(questionText);
         
         try {
-            // Get categories using Together AI
+            // Get categories using Llama-2-7b
             List<String> categories = getCategoriesFromAPI(questionText);
             question.setCategories(categories);
             
-            // Get answer using Together AI
+            // Get answer using Llama-2-7b
             String answer = getAnswerFromAPI(questionText);
             question.setAnswer(answer);
+            
+            System.out.println("Analyzed question: " + questionText.substring(0, Math.min(50, questionText.length())) + "...");
+            System.out.println("Found topics: " + categories);
             
         } catch (Exception e) {
             e.printStackTrace();
             // Fallback categories if API fails
-            question.addCategory("Uncategorized");
+            question.addCategory("General");
             question.setAnswer("Could not generate answer due to an error: " + e.getMessage());
         }
         
@@ -48,36 +49,49 @@ public class QuestionAnalyzerService {
     }
     
     private List<String> getCategoriesFromAPI(String questionText) throws Exception {
-        String prompt = "Identify the main topics or categories for this question. " +
-                "Return only a comma-separated list of 2-4 categories. Question: " + questionText;
+        // Optimized prompt for Llama-2-7b
+        String prompt = "Identify 2-3 main academic topics for this question. Return only comma-separated topics:\n\n" + questionText;
         
-        String response = callTogetherAI(prompt);
+        String response = callTogetherAI(prompt, 60); // Short response for topics
         
-        // Parse comma-separated categories
         if (response != null && !response.isEmpty()) {
-            return Arrays.asList(response.split("\\s*,\\s*"));
+            // Clean up the response
+            String cleanResponse = response.trim().replaceAll("^[^a-zA-Z]*", "").replaceAll("[^a-zA-Z,\\s]*$", "");
+            List<String> categories = Arrays.asList(cleanResponse.split("\\s*,\\s*"));
+            
+            // Filter and clean categories
+            List<String> cleanCategories = new ArrayList<>();
+            for (String category : categories) {
+                String clean = category.trim().replaceAll("[^a-zA-Z0-9\\s]", "").trim();
+                if (!clean.isEmpty() && clean.length() > 2) {
+                    cleanCategories.add(clean);
+                }
+            }
+            
+            return cleanCategories.isEmpty() ? Arrays.asList("General") : cleanCategories;
         }
         
-        return new ArrayList<>();
+        return Arrays.asList("General");
     }
     
     private String getAnswerFromAPI(String questionText) throws Exception {
-        String prompt = "Provide a detailed answer to this question: " + questionText;
-        return callTogetherAI(prompt);
+        // Optimized prompt for Llama-2-7b
+        String prompt = "Answer this question clearly and concisely:\n\n" + questionText;
+        
+        return callTogetherAI(prompt, 300); // Moderate length for answers
     }
     
     public String getResponseForQuery(String query) {
         try {
-            String prompt = "Answer this question in detail: " + query;
-            return callTogetherAI(prompt);
+            String prompt = "Provide a helpful answer to this question:\n\n" + query;
+            return callTogetherAI(prompt, 400);
         } catch (Exception e) {
             e.printStackTrace();
             return "Sorry, I couldn't process your query. Error: " + e.getMessage();
         }
     }
     
-    private String callTogetherAI(String prompt) throws Exception {
-        // Check if API key is set
+    private String callTogetherAI(String prompt, int maxTokens) throws Exception {
         if (TOGETHER_API_KEY.equals("YOUR_TOGETHER_API_KEY")) {
             throw new Exception("Please set your Together AI API key in the TOGETHER_API_KEY constant");
         }
@@ -89,21 +103,18 @@ public class QuestionAnalyzerService {
         connection.setRequestProperty("Authorization", "Bearer " + TOGETHER_API_KEY);
         connection.setDoOutput(true);
         
-        // Updated JSON format for Together AI
+        // Optimized settings for Llama-2-7b-chat-hf
         String jsonInputString = "{"
                 + "\"model\": \"" + MODEL_NAME + "\","
                 + "\"messages\": ["
+                + "  {\"role\": \"system\", \"content\": \"You are a helpful assistant that provides clear, accurate answers.\"},"
                 + "  {\"role\": \"user\", \"content\": \"" + escapeJson(prompt) + "\"}"
                 + "],"
-                + "\"max_tokens\": 512,"
-                + "\"temperature\": 0.7,"
-                + "\"top_p\": 0.7,"
-                + "\"top_k\": 50,"
-                + "\"repetition_penalty\": 1,"
-                + "\"stop\": [\"<|eot_id|>\"]"
+                + "\"max_tokens\": " + maxTokens + ","
+                + "\"temperature\": 0.2," // Low temperature for consistent, focused responses
+                + "\"top_p\": 0.9,"
+                + "\"repetition_penalty\": 1.1"
                 + "}";
-        
-        System.out.println("Request JSON: " + jsonInputString); // Debug output
         
         try (OutputStream os = connection.getOutputStream()) {
             byte[] input = jsonInputString.getBytes(StandardCharsets.UTF_8);
@@ -111,33 +122,28 @@ public class QuestionAnalyzerService {
         }
         
         int responseCode = connection.getResponseCode();
-        System.out.println("Response Code: " + responseCode); // Debug output
         
-        StringBuilder response = new StringBuilder();
-        
-        if (responseCode == 200) {
-            // Success - read response
-            try (BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream(), StandardCharsets.UTF_8))) {
-                String responseLine;
-                while ((responseLine = br.readLine()) != null) {
-                    response.append(responseLine.trim());
+        if (responseCode != 200) {
+            StringBuilder errorResponse = new StringBuilder();
+            try (BufferedReader br = new BufferedReader(new InputStreamReader(connection.getErrorStream()))) {
+                String line;
+                while ((line = br.readLine()) != null) {
+                    errorResponse.append(line);
                 }
             }
-        } else {
-            // Error - read error stream
-            try (BufferedReader br = new BufferedReader(new InputStreamReader(connection.getErrorStream(), StandardCharsets.UTF_8))) {
-                String responseLine;
-                while ((responseLine = br.readLine()) != null) {
-                    response.append(responseLine.trim());
-                }
-            }
-            throw new Exception("API request failed with response code: " + responseCode + ". Error: " + response.toString());
+            throw new Exception("API Error " + responseCode + ": " + errorResponse.toString());
         }
         
-        System.out.println("API Response: " + response.toString()); // Debug output
+        StringBuilder response = new StringBuilder();
+        try (BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream()))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                response.append(line);
+            }
+        }
         
-        // Extract content from Together AI response
-        Pattern pattern = Pattern.compile("\"content\"\\s*:\\s*\"(.*?)\"(?=\\s*[,}])");
+        // Parse response from Llama-2-7b
+        Pattern pattern = Pattern.compile("\"content\"\\s*:\\s*\"((?:[^\"\\\\]|\\\\.)*)\"");
         Matcher matcher = pattern.matcher(response.toString());
         if (matcher.find()) {
             return unescapeJson(matcher.group(1));
