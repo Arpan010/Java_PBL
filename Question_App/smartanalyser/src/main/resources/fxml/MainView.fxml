@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.web.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.smartapp.smartanalyser.controllers.MainController"
+            prefHeight="600.0" prefWidth="800.0">
+    <center>
+        <TabPane fx:id="mainTabPane" tabClosingPolicy="UNAVAILABLE">
+            <Tab fx:id="homeTab" text="Home">
+                <VBox spacing="20" alignment="CENTER">
+                    <padding>
+                        <Insets top="20" right="20" bottom="20" left="20"/>
+                    </padding>
+                    <Label text="Smart Question Analyser" style="-fx-font-size: 24px; -fx-font-weight: bold;"/>
+                    <Label text="Upload a PDF file containing questions to analyze"/>
+                    <Button fx:id="uploadButton" text="Upload PDF"/>
+                    <Label fx:id="uploadStatusLabel" text="No file uploaded"/>
+                    <ProgressBar fx:id="uploadProgressBar" progress="0.0" prefWidth="300"/>
+                </VBox>
+            </Tab>
+            
+            <Tab fx:id="analysisTab" text="Analysis">
+                <SplitPane dividerPositions="0.3">
+                    <ListView fx:id="questionListView"/>
+                    <VBox spacing="10">
+                        <padding>
+                            <Insets top="10" right="10" bottom="10" left="10"/>
+                        </padding>
+                        <Label text="Question Details"/>
+                        <TextArea fx:id="questionDetailsTextArea" wrapText="true" editable="false" VBox.vgrow="ALWAYS"/>
+                        <Label text="Categories"/>
+                        <ListView fx:id="categoriesListView" prefHeight="100"/>
+                    </VBox>
+                </SplitPane>
+            </Tab>
+            
+            <Tab fx:id="learnTab" text="Learn">
+                <SplitPane dividerPositions="0.6" orientation="VERTICAL">
+                    <VBox spacing="10">
+                        <padding>
+                            <Insets top="10" right="10" bottom="10" left="10"/>
+                        </padding>
+                        <HBox spacing="10" alignment="CENTER_LEFT">
+                            <TextField fx:id="searchField" promptText="Search Wikipedia..." HBox.hgrow="ALWAYS"/>
+                            <Button fx:id="searchButton" text="Search"/>
+                        </HBox>
+                        <WebView fx:id="wikiWebView" VBox.vgrow="ALWAYS"/>
+                    </VBox>
+                    <VBox spacing="10">
+                        <padding>
+                            <Insets top="10" right="10" bottom="10" left="10"/>
+                        </padding>
+                        <Label text="Ask a Question"/>
+                        <TextArea fx:id="queryTextArea" promptText="Type your question here..." wrapText="true" prefHeight="80"/>
+                        <Button fx:id="askButton" text="Ask"/>
+                        <Label text="Response"/>
+                        <TextArea fx:id="responseTextArea" wrapText="true" editable="false" VBox.vgrow="ALWAYS"/>
+                    </VBox>
+                </SplitPane>
+            </Tab>
+            
+            <Tab fx:id="dashboardTab" text="Dashboard">
+                <ScrollPane fitToWidth="true">
+                    <VBox fx:id="dashboardContainer" spacing="20">
+                        <padding>
+                            <Insets top="20" right="20" bottom="20" left="20"/>
+                        </padding>
+                        <Label text="Question Analysis Dashboard" style="-fx-font-size: 24px; -fx-font-weight: bold;"/>
+                        <PieChart fx:id="categoriesChart" title="Question Categories" prefHeight="400"/>
+                    </VBox>
+                </ScrollPane>
+            </Tab>
+        </TabPane>
+    </center>
+</BorderPane>
