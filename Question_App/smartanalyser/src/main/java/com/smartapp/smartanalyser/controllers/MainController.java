@@ -19,9 +19,12 @@ import javafx.stage.FileChooser;
 import java.io.File;
 import java.net.URL;
 import java.util.*;
+import java.util.logging.Logger;
+import java.util.logging.Level;
 import java.util.stream.Collectors;
 
 public class MainController implements Initializable {
+    private static final Logger logger = Logger.getLogger(MainController.class.getName());
 
     @FXML private TabPane mainTabPane;
     @FXML private Tab homeTab;
